@@ -1,0 +1,92 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="display:flex">
+
+  <!-- Styles Section -->
+  <div style="width:50%;height:60vh;margin:0%;">
+    <h2>Styles</h2>
+
+    <div style="text-align:center;width:90%;height:60%;margin:auto;">
+      <img [src]="selectedCar.styles[selectedCarColorIndex].carColorImg" alt="" class="car-img">
+    </div>
+    <div class="color-btn-holder">
+      <button *ngFor="let style of selectedCar.styles;let i = index" [style.background-color]="style.color" (click)="carColorChange(i)"
+        class="color-btn" [class.color-btn-active]="selectedCarColorIndex===i"></button>
+    </div>
+    <div style="width:90%;text-align:center;margin:auto;">
+      <p style="text-align:center">{{selectedCar.styles[selectedCarColorIndex].colorName}}</p>
+    </div>
+    <div style="width:90%;text-align:center;margin:auto;">
+      <p style="text-align:center;color:gray;">
+        Vehicle images are guides only and may not refect exact specification of the car model.
+      </p>
+    </div>
+  </div>
+
+  <!-- Rating Section -->
+  <div style="width:50%;height:60vh;margin:0%;">
+    <h2>Ratings</h2>
+    <div style="display:flex;width:100%;height:60%;">
+      <div style="width:60%;height:100%;" class="rating-progress">
+        <p>Critic's Rating</p>
+        <div class="progress-bar">
+          <div [@slideInProgress]="{value : isAnimate ? 'close' : 'open', params : { progress_width : selectedCar.rating['critic'] + '%' }}"  [style.width]="selectedCar.rating['performance'] + '%'"></div>
+          <!-- <span>{{selectedCar.rating['critic']}}</span> -->
+        </div>
+
+
+        <p>Performance</p>
+        <div class="progress-bar">
+          <div  [@slideInProgress]="{value : isAnimate ? 'close' : 'open', params : { progress_width : selectedCar.rating['performance'] + '%' }}"></div>
+        </div>
+        <!-- <p style="display:inline-block">{{selectedCar.rating['performance']}}</p> -->
+
+        <p>Interior</p>
+        <div class="progress-bar">
+          <div  [@slideInProgress]="{value : isAnimate ? 'close' : 'open', params : { progress_width : selectedCar.rating['interior'] + '%' }}" ></div>
+        </div>
+        <!-- <p style="display:inline-block">{{selectedCar.rating['interior']}}</p> -->
+
+        <p>Safety</p>
+        <div class="progress-bar">
+          <div  [@slideInProgress]="{value : isAnimate ? 'close' : 'open', params : { progress_width : selectedCar.rating['safety'] + '%' }}"></div>
+        </div>
+        <!-- <p style="display:inline-block">{{selectedCar.rating['safety']}}</p> -->
+
+        <p>Reliability</p>
+        <div class="progress-bar">
+          <div  [@slideInProgress]="{value : isAnimate ? 'close' : 'open', params : { progress_width : selectedCar.rating['reliability'] + '%' }}"></div>
+        </div>
+        <!-- <p style="display:inline-block">{{selectedCar.rating['reliability']}}</p> -->
+
+      </div>
+      <div style="width:40%;height:100%;margin:auto;position:relative;">
+        <div class="gauge">
+        </div>
+        <img src="../assets/icon-meter.png" class="needle"  [@needleInProgress]="{value : isAnimate ? 'close' : 'open', params : { progress_angle : selectedCar.rating['overall']*1.8}}">
+        <!-- [style.transform]="'rotate(' + selectedCar.rating['overall']*1.8 + 'deg)'" -->
+          
+        <div style="    width: 250px;position: absolute;top: 60%;">
+            <div style="text-align:center;font-size: 46px;">
+                {{selectedCar.rating['overall']}}
+            </div>
+    
+            <div style="text-align:center">
+                Overall Rating
+            </div>
+        </div>
+        
+      </div>
+     
+    </div>
+
+    <div style="display:flex;width:100%;justify-content:center;">
+      <div class="cars-showcase" *ngFor="let car of data;let i = index"  [class.cars-showcase-active]="selectedCarIndex===i" (click)="selectCar(i)">
+          <img [src]="car.styles[0]?.carColorImg" alt="" style="width:100%;object-fit:contain;">
+          <div style="background-color:deepskyblue;width:100%;">
+            <p style="text-align:center;margin:0%;">{{car.name}}</p>
+          </div>
+      </div>
+    </div>
+
+  </div>
+</div>

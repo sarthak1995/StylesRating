@@ -1,0 +1,99 @@
+.car-img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+
+.color-btn-holder{
+    text-align:center;
+    width:60%;
+    height:auto;
+    margin:auto;
+    display:flex;
+    justify-content : center;
+    align-items: center
+}
+
+.color-btn{
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    margin: 1%;
+    outline: none;
+}
+
+.color-btn-active{
+    outline: none;
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    margin: 1%;
+}
+
+.rating-progress > p{
+    margin: 1% 0%;
+}
+
+.progress-bar{
+    background-color: lightgoldenrodyellow;
+    width: 90%;
+    height: 15px;
+    border-radius: 10px;
+}
+
+@keyframes progressing-bar{
+    from {width: 0%;}
+}
+
+.progress-bar > div {
+    background-color: orange;
+    height: 100%;
+    border-radius: 10px;
+    /* animation-name: progressing-bar; */
+    /* animation-duration: 3s; */
+}
+
+.gauge{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 20px solid orange;
+    transform: rotate(45deg);
+    border-bottom: 20px solid transparent;
+    border-right: 20px solid transparent;
+    display: inline-block;
+}
+
+@keyframes meter-needle{
+    from { transform: rotate(0deg) }
+}
+
+.needle {
+    width: 120px;
+    /* height: 50%; */
+    object-fit: fill;
+    /* background-color: black; */
+    position: absolute;
+    /* -webkit-transform: rotate(0deg); */
+    /* transform: rotate(90deg); */
+    display: inline-block;
+    top: 101px;
+    left: 0px;
+    /* -webkit-transform-origin: bottom; */
+    transform-origin: 100% 50%;
+    /* animation-name: meter-needle; */
+    /* animation-duration: 3s; */
+}
+
+.cars-showcase{
+    width: 100px;
+    height:auto;
+    padding: 1% 0% 0% 0%;
+    margin: 1%;
+    border: 1px solid gainsboro;
+    border-radius: 2%;
+}
+
+.cars-showcase-active{
+    border: 5px solid gray;
+}
